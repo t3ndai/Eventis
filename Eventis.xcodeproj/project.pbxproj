@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE0516B21D15D64E00296A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516B11D15D64E00296A77 /* AppDelegate.swift */; };
+		FE0516B41D15D64E00296A77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516B31D15D64E00296A77 /* ViewController.swift */; };
+		FE0516B71D15D64E00296A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B51D15D64E00296A77 /* Main.storyboard */; };
+		FE0516B91D15D64E00296A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B81D15D64E00296A77 /* Assets.xcassets */; };
+		FE0516BC1D15D64E00296A77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0516BA1D15D64E00296A77 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FE0516AE1D15D64E00296A77 /* Eventis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0516B11D15D64E00296A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FE0516B31D15D64E00296A77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE0516B61D15D64E00296A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FE0516B81D15D64E00296A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE0516BB1D15D64E00296A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FE0516BD1D15D64E00296A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE0516AB1D15D64E00296A77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE0516A51D15D64E00296A77 = {
+			isa = PBXGroup;
+			children = (
+				FE0516B01D15D64E00296A77 /* Eventis */,
+				FE0516AF1D15D64E00296A77 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE0516AF1D15D64E00296A77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE0516AE1D15D64E00296A77 /* Eventis.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE0516B01D15D64E00296A77 /* Eventis */ = {
+			isa = PBXGroup;
+			children = (
+				FE0516B11D15D64E00296A77 /* AppDelegate.swift */,
+				FE0516B31D15D64E00296A77 /* ViewController.swift */,
+				FE0516B51D15D64E00296A77 /* Main.storyboard */,
+				FE0516B81D15D64E00296A77 /* Assets.xcassets */,
+				FE0516BA1D15D64E00296A77 /* LaunchScreen.storyboard */,
+				FE0516BD1D15D64E00296A77 /* Info.plist */,
+			);
+			path = Eventis;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE0516AD1D15D64E00296A77 /* Eventis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE0516C01D15D64E00296A77 /* Build configuration list for PBXNativeTarget "Eventis" */;
+			buildPhases = (
+				FE0516AA1D15D64E00296A77 /* Sources */,
+				FE0516AB1D15D64E00296A77 /* Frameworks */,
+				FE0516AC1D15D64E00296A77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Eventis;
+			productName = Eventis;
+			productReference = FE0516AE1D15D64E00296A77 /* Eventis.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE0516A61D15D64E00296A77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Tendai Prince Dzonga";
+				TargetAttributes = {
+					FE0516AD1D15D64E00296A77 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = FE0516A91D15D64E00296A77 /* Build configuration list for PBXProject "Eventis" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE0516A51D15D64E00296A77;
+			productRefGroup = FE0516AF1D15D64E00296A77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE0516AD1D15D64E00296A77 /* Eventis */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE0516AC1D15D64E00296A77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE0516BC1D15D64E00296A77 /* LaunchScreen.storyboard in Resources */,
+				FE0516B91D15D64E00296A77 /* Assets.xcassets in Resources */,
+				FE0516B71D15D64E00296A77 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE0516AA1D15D64E00296A77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE0516B41D15D64E00296A77 /* ViewController.swift in Sources */,
+				FE0516B21D15D64E00296A77 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FE0516B51D15D64E00296A77 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE0516B61D15D64E00296A77 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FE0516BA1D15D64E00296A77 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE0516BB1D15D64E00296A77 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FE0516BE1D15D64E00296A77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE0516BF1D15D64E00296A77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE0516C11D15D64E00296A77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Eventis/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Dzonga-Prince-Tendai.Eventis";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FE0516C21D15D64E00296A77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Eventis/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Dzonga-Prince-Tendai.Eventis";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE0516A91D15D64E00296A77 /* Build configuration list for PBXProject "Eventis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE0516BE1D15D64E00296A77 /* Debug */,
+				FE0516BF1D15D64E00296A77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE0516C01D15D64E00296A77 /* Build configuration list for PBXNativeTarget "Eventis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE0516C11D15D64E00296A77 /* Debug */,
+				FE0516C21D15D64E00296A77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE0516A61D15D64E00296A77 /* Project object */;
+}
