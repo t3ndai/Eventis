@@ -7,14 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95219D150FE17A558BA876B1 /* Pods_Eventis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98E722B36DD3572913E5E92 /* Pods_Eventis.framework */; };
 		FE0516B21D15D64E00296A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516B11D15D64E00296A77 /* AppDelegate.swift */; };
 		FE0516B41D15D64E00296A77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516B31D15D64E00296A77 /* ViewController.swift */; };
 		FE0516B71D15D64E00296A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B51D15D64E00296A77 /* Main.storyboard */; };
 		FE0516B91D15D64E00296A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B81D15D64E00296A77 /* Assets.xcassets */; };
 		FE0516BC1D15D64E00296A77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0516BA1D15D64E00296A77 /* LaunchScreen.storyboard */; };
+		FE0516C61D15DD0900296A77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE0516C51D15DD0900296A77 /* GoogleService-Info.plist */; };
+		FE0516E81D16249500296A77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516E71D16249500296A77 /* User.swift */; };
+		FE0516EA1D1635A100296A77 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516E91D1635A100296A77 /* EventViewController.swift */; };
+		FE0516EC1D1635D600296A77 /* UserCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516EB1D1635D600296A77 /* UserCommentsTableViewController.swift */; };
+		FE0516EE1D16361300296A77 /* HostUpdatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */; };
+		FE4F1E461D1C60B0002DFC1F /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */; };
+		FE9C98781D18431300E63A8F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C98771D18431300E63A8F /* SignInViewController.swift */; };
+		FE9C987C1D1858E600E63A8F /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C987B1D1858E600E63A8F /* UserState.swift */; };
+		FE9C987E1D18677E00E63A8F /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		824454ECCC182DC1A6A98F90 /* Pods-Eventis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eventis/Pods-Eventis.debug.xcconfig"; sourceTree = "<group>"; };
+		A47C821563CB29CE830471A5 /* Pods-Eventis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eventis/Pods-Eventis.release.xcconfig"; sourceTree = "<group>"; };
+		B98E722B36DD3572913E5E92 /* Pods_Eventis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0516AE1D15D64E00296A77 /* Eventis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0516B11D15D64E00296A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE0516B31D15D64E00296A77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +35,15 @@
 		FE0516B81D15D64E00296A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE0516BB1D15D64E00296A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE0516BD1D15D64E00296A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE0516C51D15DD0900296A77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FE0516E71D16249500296A77 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FE0516E91D1635A100296A77 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		FE0516EB1D1635D600296A77 /* UserCommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentsTableViewController.swift; sourceTree = "<group>"; };
+		FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostUpdatesTableViewController.swift; sourceTree = "<group>"; };
+		FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
+		FE9C98771D18431300E63A8F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		FE9C987B1D1858E600E63A8F /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +51,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95219D150FE17A558BA876B1 /* Pods_Eventis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D7F361A90B8CF47A90D38A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				824454ECCC182DC1A6A98F90 /* Pods-Eventis.debug.xcconfig */,
+				A47C821563CB29CE830471A5 /* Pods-Eventis.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8AD583B55EE4AB19871073E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B98E722B36DD3572913E5E92 /* Pods_Eventis.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE0516A51D15D64E00296A77 = {
 			isa = PBXGroup;
 			children = (
+				FE0516C51D15DD0900296A77 /* GoogleService-Info.plist */,
 				FE0516B01D15D64E00296A77 /* Eventis */,
 				FE0516AF1D15D64E00296A77 /* Products */,
+				1D7F361A90B8CF47A90D38A5 /* Pods */,
+				8AD583B55EE4AB19871073E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +103,14 @@
 				FE0516B81D15D64E00296A77 /* Assets.xcassets */,
 				FE0516BA1D15D64E00296A77 /* LaunchScreen.storyboard */,
 				FE0516BD1D15D64E00296A77 /* Info.plist */,
+				FE0516E71D16249500296A77 /* User.swift */,
+				FE0516E91D1635A100296A77 /* EventViewController.swift */,
+				FE0516EB1D1635D600296A77 /* UserCommentsTableViewController.swift */,
+				FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */,
+				FE9C98771D18431300E63A8F /* SignInViewController.swift */,
+				FE9C987B1D1858E600E63A8F /* UserState.swift */,
+				FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */,
+				FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */,
 			);
 			path = Eventis;
 			sourceTree = "<group>";
@@ -71,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE0516C01D15D64E00296A77 /* Build configuration list for PBXNativeTarget "Eventis" */;
 			buildPhases = (
+				AB5CEBC1547F84A3ED77BB42 /* [CP] Check Pods Manifest.lock */,
 				FE0516AA1D15D64E00296A77 /* Sources */,
 				FE0516AB1D15D64E00296A77 /* Frameworks */,
 				FE0516AC1D15D64E00296A77 /* Resources */,
+				8553CAA8A3C4D9403E27C0F6 /* [CP] Embed Pods Frameworks */,
+				6A6D05F79AE3A7B149416B55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +150,7 @@
 				TargetAttributes = {
 					FE0516AD1D15D64E00296A77 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = URMWQU63PG;
 					};
 				};
 			};
@@ -123,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE0516BC1D15D64E00296A77 /* LaunchScreen.storyboard in Resources */,
+				FE0516C61D15DD0900296A77 /* GoogleService-Info.plist in Resources */,
 				FE0516B91D15D64E00296A77 /* Assets.xcassets in Resources */,
 				FE0516B71D15D64E00296A77 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +186,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6A6D05F79AE3A7B149416B55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Eventis/Pods-Eventis-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8553CAA8A3C4D9403E27C0F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Eventis/Pods-Eventis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB5CEBC1547F84A3ED77BB42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FE0516AA1D15D64E00296A77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE9C98781D18431300E63A8F /* SignInViewController.swift in Sources */,
+				FE4F1E461D1C60B0002DFC1F /* SearchAddressViewController.swift in Sources */,
 				FE0516B41D15D64E00296A77 /* ViewController.swift in Sources */,
+				FE9C987C1D1858E600E63A8F /* UserState.swift in Sources */,
+				FE0516EA1D1635A100296A77 /* EventViewController.swift in Sources */,
+				FE0516EE1D16361300296A77 /* HostUpdatesTableViewController.swift in Sources */,
 				FE0516B21D15D64E00296A77 /* AppDelegate.swift in Sources */,
+				FE0516EC1D1635D600296A77 /* UserCommentsTableViewController.swift in Sources */,
+				FE0516E81D16249500296A77 /* User.swift in Sources */,
+				FE9C987E1D18677E00E63A8F /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,23 +359,31 @@
 		};
 		FE0516C11D15D64E00296A77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 824454ECCC182DC1A6A98F90 /* Pods-Eventis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Eventis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Dzonga-Prince-Tendai.Eventis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		FE0516C21D15D64E00296A77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A47C821563CB29CE830471A5 /* Pods-Eventis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Eventis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Dzonga-Prince-Tendai.Eventis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +406,7 @@
 				FE0516C21D15D64E00296A77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
