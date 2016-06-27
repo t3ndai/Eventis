@@ -20,21 +20,28 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     
     
     var input: UIView?
-    
-    var latitude: Double!
-    var longitude: Double!
+
+    var downloadURL: String!
+
+    var latitude: Double! = 0
+    var longitude: Double! = 0
     
     var eventLive: Bool!
     
     //Set Up Firebase 
     var ref: FIRDatabaseReference!
     
+    var imageData: NSData!
+
+    var storageRef: FIRStorageReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
         
+        configureStorage()
+
         eventNameField.delegate = self
         eventDescription.delegate = self
 
@@ -43,6 +50,10 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
+    }
+    
+    func configureStorage() {
+        storageRef = FIRStorage.storage().referenceForURL("gs://project-3214782734611601223.appspot.com")
     }
     
     @IBAction func getLocation(sender: AnyObject) {
@@ -77,6 +88,8 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         self.eventImageView.image = eventImage
+        imageData = UIImageJPEGRepresentation(eventImage, 1)
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -158,6 +171,45 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
+    
+    @IBAction func uploadEvent(sender: AnyObject) {
+        
+        
+        let host = FIRAuth.auth()?.currentUser?.displayName!
+        var eventName = eventNameField.text
+
+        let eventSpace = (eventName! + host!.substringWithRange(host!.startIndex...host!.startIndex.advancedBy(2))).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        let eventID = eventSpace.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        let filepath = host! + "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000)).jpg"
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let eventImagesRef = storageRef.child("eventImages")
+        
+        print(filepath)
+        
+        eventImagesRef.putData(imageData!, metadata: metadata).observeStatus(.Success) { (snapshot) in
+            
+            let downloadTxt = snapshot.metadata!.downloadURL()!.absoluteString
+            
+            self.downloadURL = downloadTxt
+            print(self.downloadURL)
+        }
+        
+        let key = ref.child("events").childByAutoId().key
+        let event: [String: AnyObject] = ["eventID": eventID,
+                     "host": host!,
+                     "eventDescription": eventDescription.text!,
+                     "location": [ "latitude": latitude, "longitude": longitude],
+                     
+        ]
+        let childUpdates = ["/events/\(key)": event,
+                            "/user-events/\(host!)/\(key)": event]
+        ref.updateChildValues(childUpdates)
+        
+    }
    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
