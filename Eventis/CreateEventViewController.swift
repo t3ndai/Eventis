@@ -35,6 +35,12 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
 
     var storageRef: FIRStorageReference!
     
+    let host = FIRAuth.auth()?.currentUser?.displayName!
+    
+    
+    //NSOperations for dependencies 
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +70,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func uploadEventImage(sender: AnyObject) {
         let picker = UIImagePickerController()
-        picker.allowsEditing = true
+        picker.allowsEditing = false
         picker.delegate = self
         presentViewController(picker, animated: true, completion: nil)
     }
@@ -87,8 +93,26 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         } else {
             return
         }
-        self.eventImageView.image = eventImage
+        eventImageView.contentMode = .ScaleAspectFit
+        eventImageView.image = eventImage
         imageData = UIImageJPEGRepresentation(eventImage, 1)
+        
+        let filepath = host! + "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000)).jpg"
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let eventImagesRef = storageRef.child("eventImages")
+        
+        let eventImageRef = eventImagesRef.child(filepath)
+        
+        eventImageRef.putData(self.imageData!, metadata: metadata).observeStatus(.Success) { (snapshot) in
+            
+            let downloadTxt = snapshot.metadata!.downloadURL()!.absoluteString
+            
+            self.downloadURL = downloadTxt
+            print(self.downloadURL)
+        }
+        
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -174,40 +198,28 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func uploadEvent(sender: AnyObject) {
         
-        
-        let host = FIRAuth.auth()?.currentUser?.displayName!
+       
         var eventName = eventNameField.text
 
         let eventSpace = (eventName! + host!.substringWithRange(host!.startIndex...host!.startIndex.advancedBy(2))).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         let eventID = eventSpace.stringByReplacingOccurrencesOfString(" ", withString: "")
+    
+        var queue = NSOperationQueue()
         
-        let filepath = host! + "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000)).jpg"
-        let metadata = FIRStorageMetadata()
-        metadata.contentType = "image/jpeg"
-        
-        let eventImagesRef = storageRef.child("eventImages")
-        
-        print(filepath)
-        
-        eventImagesRef.putData(imageData!, metadata: metadata).observeStatus(.Success) { (snapshot) in
             
-            let downloadTxt = snapshot.metadata!.downloadURL()!.absoluteString
-            
-            self.downloadURL = downloadTxt
-            print(self.downloadURL)
-        }
+            let key = self.ref.child("events").childByAutoId().key
         
-        let key = ref.child("events").childByAutoId().key
         let event: [String: AnyObject] = ["eventID": eventID,
-                     "host": host!,
-                     "eventDescription": eventDescription.text!,
-                     "location": [ "latitude": latitude, "longitude": longitude],
-                     
-        ]
+                         "host": host!,
+                         "eventDescription": self.eventDescription.text!,
+                         "location": [ "latitude": self.latitude, "longitude": self.longitude],
+                        "eventPhotoURL": self.downloadURL!
+                         
+            ]
         let childUpdates = ["/events/\(key)": event,
-                            "/user-events/\(host!)/\(key)": event]
-        ref.updateChildValues(childUpdates)
+                                "/user-events/\(host!)/\(key)" : event]
+            self.ref.updateChildValues(childUpdates)
         
     }
    

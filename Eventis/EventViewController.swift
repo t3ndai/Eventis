@@ -7,15 +7,57 @@
 //
 
 import UIKit
+import Firebase
 
-class EventViewController: UIViewController {
-
+class EventViewController: UIViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var searchEventBar: UISearchBar!
+    
+    //Firebase Setup
+    var ref: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        searchEventBar.delegate = self
+        
+        ref = FIRDatabase.database().reference()
     }
-
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchBar.becomeFirstResponder()
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        var eventID: String
+        eventID = searchEventBar.text!
+        var eventsRef = ref.child("events")
+       
+        eventsRef.queryOrderedByChild("eventID").queryEqualToValue(eventID).observeEventType(.ChildAdded, withBlock: {
+            (snapshot) in
+            
+            if snapshot.exists() {
+                let data = snapshot.value as! Dictionary<String, AnyObject>
+                guard let eventDescription = data["eventDescription"] as! String! else { return }
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({
+                   print(eventDescription)
+                })
+            }
+            
+        })
+        
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
