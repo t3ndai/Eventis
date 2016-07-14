@@ -50,7 +50,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
 
         eventNameField.delegate = self
         eventDescription.delegate = self
-
+        
         let notificationCenter = NSNotificationCenter.defaultCenter()
         
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
@@ -182,7 +182,10 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         return true
         
     }
-        
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        eventDescription.text = nil
+    }
     
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
         let searchAddressController: SearchAddressViewController = popoverPresentationController.presentedViewController as! SearchAddressViewController
@@ -211,6 +214,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
             let key = self.ref.child("events").childByAutoId().key
         
         let event: [String: AnyObject] = ["eventID": eventID,
+                         "eventName": eventName!,
                          "host": host!,
                          "eventDescription": self.eventDescription.text!,
                          "location": [ "latitude": self.latitude, "longitude": self.longitude],
@@ -219,7 +223,19 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
             ]
         let childUpdates = ["/events/\(key)": event,
                                 "/user-events/\(host!)/\(key)" : event]
-            self.ref.updateChildValues(childUpdates)
+        
+        //self.ref.updateChildValues(childUpdates)
+        self.ref.updateChildValues(childUpdates, withCompletionBlock: {
+            (error: NSError?, ref: FIRDatabaseReference!) in
+            if error != nil {
+                print("data could not be saved")
+            }else{
+                self.eventImageView.image = UIImage(named: "EventImageDefault")
+                self.eventDescription.text = nil
+                self.eventNameField.text = nil
+                
+            }
+        })
         
     }
    

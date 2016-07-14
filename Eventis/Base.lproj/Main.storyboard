@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Yh-nu-92r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="et7-Bp-eZj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -43,7 +43,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X52-Ky-Mk5">
                                 <rect key="frame" x="20" y="122" width="280" height="128"/>
                                 <connections>
-                                    <segue destination="hZ0-5n-tMr" kind="embed" id="ADg-MK-Rvt"/>
+                                    <segue destination="hZ0-5n-tMr" kind="embed" identifier="eventImageSegue" id="ADg-MK-Rvt"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -67,7 +67,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nls-9d-ghM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="6SW-Nt-4cs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="6SW-Nt-4cs">
+                            <connections>
+                                <segue destination="ouf-lO-6hH" kind="show" id="fe7-Oa-pap"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -76,31 +80,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="407"/>
+            <point key="canvasLocation" x="1514" y="36"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="2OO-x3-zNn">
+        <!--Root View Controller-->
+        <scene sceneID="XCx-0V-N1M">
             <objects>
-                <viewController id="P3X-5C-55g" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ncM-wQ-7pw"/>
-                        <viewControllerLayoutGuide type="bottom" id="kds-yh-MYF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Cy-bP-imj">
+                <tableViewController id="ouf-lO-6hH" customClass="SearchEventTableViewController" customModule="Eventis" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eZX-PR-wtO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vCM-4x-NX9">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vCM-4x-NX9" id="dhr-Dj-DYB">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ouf-lO-6hH" id="Tlu-F4-jDg"/>
+                            <outlet property="delegate" destination="ouf-lO-6hH" id="wcV-Xn-Zj2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="WfZ-kn-Ij7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="47K-ms-MHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nxB-Yw-tCu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2360" y="155"/>
+            <point key="canvasLocation" x="2152" y="-310"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Image View Controller-->
         <scene sceneID="asS-VM-6ZM">
             <objects>
-                <viewController id="hZ0-5n-tMr" sceneMemberID="viewController">
+                <viewController id="hZ0-5n-tMr" customClass="EventImageViewController" customModule="Eventis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2RI-Tr-wZB"/>
                         <viewControllerLayoutGuide type="bottom" id="iXv-dH-8KR"/>
@@ -116,10 +131,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="eventImageView" destination="9JE-sd-7w4" id="Rp2-aA-On9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNy-PN-TWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963" y="387"/>
+            <point key="canvasLocation" x="1977" y="389"/>
         </scene>
         <!--Host Updates Table View Controller-->
         <scene sceneID="MIF-ER-WOP">
@@ -301,11 +319,13 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWP-Dt-1bP">
                                 <rect key="frame" x="20" y="394" width="280" height="128"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eUD-Vp-8PP">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Event Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eUD-Vp-8PP">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="128"/>
                                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
