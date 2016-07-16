@@ -11,18 +11,14 @@ import Firebase
 
 
 
-class EventViewController: UIViewController, UISearchBarDelegate, EventImageDelegate{
-    
-    @IBOutlet weak var searchEventBar: UISearchBar!
+class EventViewController: UIViewController{
     
     
     //Delegation
-    var url: String = ""{
-        didSet{
-            print(url)
-        }
-    }
-    var imageContainer: EventImageViewController?
+    var event = [String: AnyObject]()
+    
+    
+    var fromEventSearch = false
     
     //Firebase Setup
     var ref: FIRDatabaseReference!
@@ -31,49 +27,15 @@ class EventViewController: UIViewController, UISearchBarDelegate, EventImageDele
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        searchEventBar.delegate = self
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 45/255, blue: 85/255, alpha: 1)
         
         ref = FIRDatabase.database().reference()
-    }
-    
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchBar.becomeFirstResponder()
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        var eventID: String
-        eventID = searchEventBar.text!
-        var eventsRef = ref.child("events")
-       
-        eventsRef.queryOrderedByChild("eventID").queryEqualToValue(eventID).observeEventType(.ChildAdded, withBlock: {
-            (snapshot) in
-            
-            if snapshot.exists() {
-                let data = snapshot.value as! Dictionary<String, AnyObject>
-                guard let eventDescription = data["eventDescription"] as! String! else { return }
-                guard let eventURL = data["eventPhotoURL"] as! String! else { return }
-                
-                self.url = eventURL
-                self.performSegueWithIdentifier("eventImageSegue", sender: self)
-
-            }
-            
-        })
+        
         
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-    
-    func imageUrl(url: String) {
-        
-    }
-    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -81,17 +43,30 @@ class EventViewController: UIViewController, UISearchBarDelegate, EventImageDele
     
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    @IBAction func unwindToVC(sender: UIStoryboardSegue) {
+        
+            if sender.identifier == "getEvent" {
+                let searchEventController = sender.sourceViewController as! SearchEventTableViewController
+                self.event = searchEventController.event
+                
+            }
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "eventImageSegue" {
-            let vc = segue.destinationViewController as! EventImageViewController
-            vc.imageUrl = url
-            
+        if !event.isEmpty {
+            if segue.identifier == "location" {
+                let mapView: MapViewController = segue.destinationViewController as! MapViewController
+                guard case let latitude = event["location"]!["latitude"]! else { return }
+                guard case let longitude = event["location"]!["longitude"]! else { return }
+                mapView.latitude = latitude as AnyObject as! Double
+                mapView.longitude = longitude as AnyObject as! Double
+            }
+           
         }
-        
     }
     
 

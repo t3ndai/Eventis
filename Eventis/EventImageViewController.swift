@@ -12,28 +12,47 @@ class EventImageViewController: UIViewController {
     
     @IBOutlet weak var eventImageView: UIImageView!
     
-    var imageUrl: String = ""
+    var imageUrl: String = "" {
+        didSet{
+            
+        }
+    }
+    var event = [String: AnyObject]()
     
     //Setup Delegation
-    var imageDelegate: EventImageDelegate?
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        loadImage()
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        loadImage()
+    }
+    
    
     func loadImage() {
         
-        if imageUrl != "" {
-            let url = NSURL(string: imageUrl)
-            let data = NSData(contentsOfURL: url!)
-            let image = UIImage(data: data!)
-            NSOperationQueue.mainQueue().addOperationWithBlock({
-                self.eventImageView.image = image
-            })
+        if !event.isEmpty {
+            imageUrl = event["eventPhotoURL"]! as AnyObject as! String
+            if imageUrl != "" {
+                let url = NSURL(string: imageUrl)
+                let data = NSData(contentsOfURL: url!)
+                let image = UIImage(data: data!)
+                NSOperationQueue.mainQueue().addOperationWithBlock({
+                    self.eventImageView.image = image
+                })
+            }
+        }
+    }
+    
+    @IBAction func unwindToImageVC (sender: UIStoryboardSegueWithCompletion){
+        if sender.identifier == "getImage" {
+            let searchEventController = sender.sourceViewController as! SearchEventTableViewController
+            self.event = searchEventController.event
         }
         
     }

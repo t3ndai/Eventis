@@ -8,11 +8,3 @@
 
 import Foundation
 
-struct Event {
-    
-}
-
-protocol EventImageDelegate {
-    func imageUrl(url: String)
-    
-}

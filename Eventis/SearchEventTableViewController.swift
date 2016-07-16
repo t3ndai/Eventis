@@ -21,6 +21,7 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
             print(events.count)
         }
     }
+    var event = [String: AnyObject]()
     //Firebase Setup 
     var ref: FIRDatabaseReference!
     
@@ -132,13 +133,23 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
 
         // Configure the cell...
         for event in events {
-            cell.textLabel?.text = event["eventDescription"] as! String!
+            cell.textLabel?.text = event["eventName"] as! String
+            //cell.textLabel?.text = event["eventDescription"] as! String!
             cell.textLabel?.sizeToFit()
         }
 
         return cell
     }
     
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        event = events[indexPath.row]
+        performSegueWithIdentifier("getEvent", sender: self)
+        performSegueWithIdentifier("getImage", sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -175,14 +186,16 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        
     }
-    */
+    
 
 }
