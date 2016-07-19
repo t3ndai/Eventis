@@ -10,15 +10,24 @@ import UIKit
 import Firebase
 
 
+enum Segments: Int {
+    case HostUpdates
+    case UserComments
+}
 
 class EventViewController: UIViewController{
-    
-    
+
     //Delegation
     var event = [String: AnyObject]()
     
+    @IBOutlet weak var segmentContainerControl: UISegmentedControl!
+    weak var currentViewController: UIViewController?
     
-    var fromEventSearch = false
+    @IBOutlet weak var hostUpdatesContainer: UIView!
+    @IBOutlet weak var userCommentsContainer: UIView!
+    
+    
+    
     
     //Firebase Setup
     var ref: FIRDatabaseReference!
@@ -31,6 +40,10 @@ class EventViewController: UIViewController{
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 45/255, blue: 85/255, alpha: 1)
         
         ref = FIRDatabase.database().reference()
+        
+        segmentContainerControl.addTarget(self, action: "segmentedContainers:", forControlEvents: .ValueChanged)
+        hostUpdatesContainer.hidden = false
+        userCommentsContainer.hidden = true
         
         
     }
@@ -68,6 +81,33 @@ class EventViewController: UIViewController{
            
         }
     }
+    
+    @IBAction func segmentedContainers(sender: AnyObject) {
+        
+        let selectedContainer = Segments(rawValue: sender.selectedSegmentIndex)!
+        
+        switch selectedContainer {
+        case .HostUpdates:
+            hostUpdatesContainer.hidden = false
+            userCommentsContainer.hidden = true
+            
+        case .UserComments:
+            userCommentsContainer.hidden = false
+            hostUpdatesContainer.hidden = true
+            
+        }
+        
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    
+   
+  
+    
     
 
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		95219D150FE17A558BA876B1 /* Pods_Eventis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98E722B36DD3572913E5E92 /* Pods_Eventis.framework */; };
+		FE020FD91D3D83CD005A87B3 /* customTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE020FD81D3D83CD005A87B3 /* customTextView.swift */; };
+		FE020FDB1D3D86F7005A87B3 /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE020FDA1D3D86F7005A87B3 /* customButton.swift */; };
 		FE0516B21D15D64E00296A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516B11D15D64E00296A77 /* AppDelegate.swift */; };
 		FE0516B71D15D64E00296A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B51D15D64E00296A77 /* Main.storyboard */; };
 		FE0516B91D15D64E00296A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B81D15D64E00296A77 /* Assets.xcassets */; };
@@ -15,8 +17,8 @@
 		FE0516C61D15DD0900296A77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE0516C51D15DD0900296A77 /* GoogleService-Info.plist */; };
 		FE0516E81D16249500296A77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516E71D16249500296A77 /* User.swift */; };
 		FE0516EA1D1635A100296A77 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516E91D1635A100296A77 /* EventViewController.swift */; };
-		FE0516EC1D1635D600296A77 /* UserCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516EB1D1635D600296A77 /* UserCommentsTableViewController.swift */; };
 		FE0516EE1D16361300296A77 /* HostUpdatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */; };
+		FE1546251D3D96ED00FFC9AB /* UserCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1546241D3D96ED00FFC9AB /* UserCommentsViewController.swift */; };
 		FE4F1E461D1C60B0002DFC1F /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */; };
 		FE5364861D3073D600C99126 /* EventImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5364851D3073D600C99126 /* EventImageViewController.swift */; };
 		FE5364881D30828100C99126 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5364871D30828100C99126 /* Event.swift */; };
@@ -32,6 +34,8 @@
 		824454ECCC182DC1A6A98F90 /* Pods-Eventis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eventis/Pods-Eventis.debug.xcconfig"; sourceTree = "<group>"; };
 		A47C821563CB29CE830471A5 /* Pods-Eventis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eventis/Pods-Eventis.release.xcconfig"; sourceTree = "<group>"; };
 		B98E722B36DD3572913E5E92 /* Pods_Eventis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE020FD81D3D83CD005A87B3 /* customTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextView.swift; sourceTree = "<group>"; };
+		FE020FDA1D3D86F7005A87B3 /* customButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
 		FE0516AE1D15D64E00296A77 /* Eventis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0516B11D15D64E00296A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE0516B61D15D64E00296A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,8 +45,8 @@
 		FE0516C51D15DD0900296A77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FE0516E71D16249500296A77 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FE0516E91D1635A100296A77 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
-		FE0516EB1D1635D600296A77 /* UserCommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentsTableViewController.swift; sourceTree = "<group>"; };
 		FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostUpdatesTableViewController.swift; sourceTree = "<group>"; };
+		FE1546241D3D96ED00FFC9AB /* UserCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentsViewController.swift; sourceTree = "<group>"; };
 		FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
 		FE5364851D3073D600C99126 /* EventImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventImageViewController.swift; sourceTree = "<group>"; };
 		FE5364871D30828100C99126 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -112,17 +116,19 @@
 				FE0516BD1D15D64E00296A77 /* Info.plist */,
 				FE0516E71D16249500296A77 /* User.swift */,
 				FE0516E91D1635A100296A77 /* EventViewController.swift */,
-				FE0516EB1D1635D600296A77 /* UserCommentsTableViewController.swift */,
 				FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */,
 				FE9C98771D18431300E63A8F /* SignInViewController.swift */,
 				FE9C987B1D1858E600E63A8F /* UserState.swift */,
 				FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */,
 				FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */,
+				FE020FDA1D3D86F7005A87B3 /* customButton.swift */,
 				FE5364851D3073D600C99126 /* EventImageViewController.swift */,
 				FE5364871D30828100C99126 /* Event.swift */,
 				FE5364891D36C64D00C99126 /* SearchEventTableViewController.swift */,
 				FE53648B1D3869ED00C99126 /* MapViewController.swift */,
 				FE53648D1D39670E00C99126 /* UIStoryboardSegueWithCompletion.swift */,
+				FE020FD81D3D83CD005A87B3 /* customTextView.swift */,
+				FE1546241D3D96ED00FFC9AB /* UserCommentsViewController.swift */,
 			);
 			path = Eventis;
 			sourceTree = "<group>";
@@ -251,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE020FD91D3D83CD005A87B3 /* customTextView.swift in Sources */,
 				FE9C98781D18431300E63A8F /* SignInViewController.swift in Sources */,
 				FE4F1E461D1C60B0002DFC1F /* SearchAddressViewController.swift in Sources */,
 				FE53648E1D39670E00C99126 /* UIStoryboardSegueWithCompletion.swift in Sources */,
@@ -262,9 +269,10 @@
 				FE53648A1D36C64D00C99126 /* SearchEventTableViewController.swift in Sources */,
 				FE0516EE1D16361300296A77 /* HostUpdatesTableViewController.swift in Sources */,
 				FE0516B21D15D64E00296A77 /* AppDelegate.swift in Sources */,
-				FE0516EC1D1635D600296A77 /* UserCommentsTableViewController.swift in Sources */,
 				FE0516E81D16249500296A77 /* User.swift in Sources */,
 				FE9C987E1D18677E00E63A8F /* CreateEventViewController.swift in Sources */,
+				FE1546251D3D96ED00FFC9AB /* UserCommentsViewController.swift in Sources */,
+				FE020FDB1D3D86F7005A87B3 /* customButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
