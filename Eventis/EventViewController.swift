@@ -26,9 +26,6 @@ class EventViewController: UIViewController{
     @IBOutlet weak var hostUpdatesContainer: UIView!
     @IBOutlet weak var userCommentsContainer: UIView!
     
-    
-    
-    
     //Firebase Setup
     var ref: FIRDatabaseReference!
     
@@ -37,14 +34,13 @@ class EventViewController: UIViewController{
 
         // Do any additional setup after loading the view.
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 45/255, blue: 85/255, alpha: 1)
+        //navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 45/255, blue: 85/255, alpha: 1)
         
         ref = FIRDatabase.database().reference()
         
         segmentContainerControl.addTarget(self, action: "segmentedContainers:", forControlEvents: .ValueChanged)
         hostUpdatesContainer.hidden = false
         userCommentsContainer.hidden = true
-        
         
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2Yh-nu-92r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6WG-dV-yrc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -252,7 +252,7 @@
                                         <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pjf-z8-cdw" id="gf8-Ka-H68">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU4-Cq-Ee8">
@@ -268,7 +268,7 @@
                                         <rect key="frame" x="0.0" y="108" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gc7-8v-DkQ" id="y6H-af-iYR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Host " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iof-G7-yhe">
@@ -284,7 +284,7 @@
                                         <rect key="frame" x="0.0" y="152" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sK2-Kf-gEQ" id="8MD-6S-ZTl">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwQ-lh-eqq">
@@ -310,10 +310,11 @@
             </objects>
             <point key="canvasLocation" x="-884" y="-569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Event-->
         <scene sceneID="eDY-K8-tae">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Yh-nu-92r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Event" image="circus_tent" selectedImage="circus_tent_filled" id="vc6-fc-VZf"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ER-zp-C3f">
@@ -386,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPg-gg-xgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549.33333333333337" y="1496.6800000000001"/>
+            <point key="canvasLocation" x="649" y="1856"/>
         </scene>
         <!--New Event-->
         <scene sceneID="vZE-0e-7zN">
@@ -492,6 +493,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6gu-e1-dNF"/>
                     <connections>
                         <outlet property="searchAddressTextBar" destination="Bxm-kC-tV2" id="MvQ-8i-brk"/>
                         <outlet property="searchResultsTbl" destination="ePh-WW-Ymi" id="EaI-3S-KwV"/>
@@ -501,10 +503,29 @@
             </objects>
             <point key="canvasLocation" x="1597" y="1572"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="mpw-KQ-zIV">
+            <objects>
+                <tabBarController id="6WG-dV-yrc" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="14f-Pn-vSt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2Yh-nu-92r" kind="relationship" relationship="viewControllers" id="2xE-bf-qz7"/>
+                        <segue destination="et7-Bp-eZj" kind="relationship" relationship="viewControllers" id="9Pa-sF-5Au"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDV-Wm-GyM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-644" y="946"/>
+        </scene>
+        <!--Host-->
         <scene sceneID="4Ib-aZ-q8X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="et7-Bp-eZj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Host" image="user_menu" selectedImage="user_menu_filled" id="LpK-rw-pSm"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8En-Ks-8kH">
@@ -518,7 +539,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsa-zH-eXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124.8" y="1384.9733333333334"/>
+            <point key="canvasLocation" x="200" y="1603"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jiJ-gY-0LE">
@@ -541,8 +562,12 @@
     </scenes>
     <resources>
         <image name="EventImageDefault" width="187" height="122"/>
+        <image name="circus_tent" width="40" height="41"/>
+        <image name="circus_tent_filled" width="40" height="41"/>
         <image name="location" width="30" height="44"/>
         <image name="map_marker" width="44" height="44"/>
         <image name="slr_camera" width="50" height="47"/>
+        <image name="user_menu" width="44" height="39"/>
+        <image name="user_menu_filled" width="50" height="43"/>
     </resources>
 </document>
