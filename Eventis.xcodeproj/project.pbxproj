@@ -28,6 +28,7 @@
 		FE9C98781D18431300E63A8F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C98771D18431300E63A8F /* SignInViewController.swift */; };
 		FE9C987C1D1858E600E63A8F /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C987B1D1858E600E63A8F /* UserState.swift */; };
 		FE9C987E1D18677E00E63A8F /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */; };
+		FE9F0BA61D3F043C00011370 /* HostMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F0BA51D3F043C00011370 /* HostMenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		FE9C98771D18431300E63A8F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FE9C987B1D1858E600E63A8F /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		FE9F0BA51D3F043C00011370 /* HostMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostMenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				FE53648D1D39670E00C99126 /* UIStoryboardSegueWithCompletion.swift */,
 				FE020FD81D3D83CD005A87B3 /* customTextView.swift */,
 				FE1546241D3D96ED00FFC9AB /* UserCommentsViewController.swift */,
+				FE9F0BA51D3F043C00011370 /* HostMenuTableViewController.swift */,
 			);
 			path = Eventis;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				FE0516E81D16249500296A77 /* User.swift in Sources */,
 				FE9C987E1D18677E00E63A8F /* CreateEventViewController.swift in Sources */,
 				FE1546251D3D96ED00FFC9AB /* UserCommentsViewController.swift in Sources */,
+				FE9F0BA61D3F043C00011370 /* HostMenuTableViewController.swift in Sources */,
 				FE020FDB1D3D86F7005A87B3 /* customButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
