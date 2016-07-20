@@ -17,6 +17,8 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var eventDescription: UITextView!
     @IBOutlet weak var eventSwitch: UISwitch!
+    @IBOutlet weak var newEvent: UIBarButtonItem!
+    
     
     
     var input: UIView?
@@ -55,6 +57,10 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        
+        if FIRAuth.auth().currentUser == nil {
+            newEvent.enabled = false
+        }
         
     }
     

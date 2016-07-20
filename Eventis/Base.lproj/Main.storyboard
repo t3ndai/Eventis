@@ -462,6 +462,7 @@
                         <outlet property="eventDescription" destination="eUD-Vp-8PP" id="tTs-JP-T15"/>
                         <outlet property="eventImageView" destination="kgE-Aa-Qej" id="1Ky-lp-46N"/>
                         <outlet property="eventNameField" destination="T7D-qD-Vrx" id="cwy-iV-eGD"/>
+                        <outlet property="newEvent" destination="t1y-wk-rOF" id="qZk-Eg-0Qd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZ3-Gk-EtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
