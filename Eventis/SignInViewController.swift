@@ -20,14 +20,13 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 45/255, blue: 85/255, alpha: 1)
         
     }
     
     @IBAction func SignInButton(sender: AnyObject) {
         let email = emailField.text
         let password = passwordField.text
-        FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user,error) in
+        FIRAuth.auth()?.signInWithEmail(email!, password: password!) { [unowned self] (user,error) in
             
             do {
                 self.signedIn(user!)
@@ -77,7 +76,12 @@ class SignInViewController: UIViewController {
             print(name)
             print(email)
         }
-        performSegueWithIdentifier("signedIn", sender: self)
+        let ac = UIAlertController(title: "Signed In", message: "Now you're signed In, You can now comment and host events", preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(ac, animated: true, completion: {
+            self.emailField.text = ""
+            self.passwordField.text = ""
+        })
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

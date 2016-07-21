@@ -35,6 +35,8 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         self.searchResultsTbl.delegate = self
         self.searchResultsTbl.dataSource = self
         self.searchResultsTbl.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.searchResultsTbl.estimatedRowHeight = 44.0
+        self.searchResultsTbl.rowHeight = UITableViewAutomaticDimension
 
     }
     
@@ -49,7 +51,7 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         
         let options = ForwardGeocodeOptions(query: searchAddress!)
         
-        geocodingDataTask = geocoder.geocode(options: options) { (placemarks, attribution, error) in
+        geocodingDataTask = geocoder.geocode(options: options) { [unowned self] (placemarks, attribution, error) in
             
             do {
                 self.searchResults.removeAll()
@@ -76,7 +78,7 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         
         let options = ForwardGeocodeOptions(query: searchText)
         
-        geocodingDataTask = geocoder.geocode(options: options) { (placemarks, attribution, error) in
+        geocodingDataTask = geocoder.geocode(options: options) { [unowned self] (placemarks, attribution, error) in
             
             for placemark in placemarks! {
                 self.searchResults.append(placemark)
@@ -103,6 +105,7 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         
         for placemark in searchResults {
             cell.textLabel?.text = placemark.qualifiedName
+            cell.textLabel?.numberOfLines = 0
             cell.textLabel?.sizeToFit()
         }
         

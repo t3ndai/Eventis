@@ -73,9 +73,11 @@ class EventViewController: UIViewController{
                 guard case let longitude = event["location"]!["longitude"]! else { return }
                 mapView.latitude = latitude as AnyObject as! Double
                 mapView.longitude = longitude as AnyObject as! Double
+                
             }
            
         }
+        
     }
     
     @IBAction func segmentedContainers(sender: AnyObject) {

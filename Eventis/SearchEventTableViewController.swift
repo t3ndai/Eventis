@@ -33,7 +33,7 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
         searchBar.placeholder = "Search for Event using EventTag"
         searchBar.delegate = self
         navigationItem.titleView = searchBar
-        navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
+        
         
         ref = FIRDatabase.database().reference()
         
@@ -78,7 +78,7 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
         let eventsRef = ref.child("events")
         
         eventsRef.queryOrderedByChild("eventID").queryEqualToValue(eventID).observeEventType(.ChildAdded, withBlock: {
-            (snapshot) in
+             (snapshot)  in
             
             if snapshot.exists() {
                 let data = snapshot.value as! Dictionary<String, AnyObject>
@@ -193,7 +193,7 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
+       
         
     }
     

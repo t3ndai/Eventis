@@ -8,12 +8,15 @@
 
 import UIKit
 
+
 class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet weak var commentInput: customTextView!
+    @IBOutlet weak var commentInput = UITextView()
     @IBOutlet weak var sendBtn: customButton!
     @IBOutlet weak var commentsTable: UITableView!
+    
+    
     
     let tap = UITapGestureRecognizer()
     
@@ -26,12 +29,21 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         self.commentsTable.dataSource = self
         self.commentsTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.commentsTable.addGestureRecognizer(tap)
+       
         
+        self.commentInput!.layer.cornerRadius = 6
+        self.commentInput?.textContainer.maximumNumberOfLines = 3
+        self.commentInput?.textContainer.lineBreakMode = .ByTruncatingTail
         
-        commentInput.delegate = self
+        commentInput!.delegate = self
         let notficationCenter = NSNotificationCenter.defaultCenter()
         notficationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         notficationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        
+        if UserState.sharedInstance.signedIn == false {
+            self.sendBtn.enabled = false
+            
+        }
         
     }
     
@@ -55,7 +67,7 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     
     func keyboardWillHide(notification: NSNotification){
         
-        if commentInput.resignFirstResponder() {
+        if commentInput!.resignFirstResponder() {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
                 self.view.frame.origin.y += keyboardSize.height
             }
@@ -64,9 +76,10 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     
     func keyboardWillShow(notification: NSNotification) {
         
-        if commentInput.isFirstResponder() {
+        if commentInput!.isFirstResponder() {
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
                 self.view.frame.origin.y -= keyboardSize.height
+                self.view.layoutIfNeeded()
             }
         }
     }
@@ -92,6 +105,10 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         super.touchesBegan(touches, withEvent: event)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     
     func deregisterFromKeyboardNotifications() {
         
@@ -104,8 +121,6 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     
         return textView.text.characters.count < 255
     }*/
-    
-
     
     /*
     // MARK: - Navigation
@@ -120,6 +135,10 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

@@ -51,6 +51,11 @@ class MapViewController: UIViewController, MGLMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 
     /*
     // MARK: - Navigation

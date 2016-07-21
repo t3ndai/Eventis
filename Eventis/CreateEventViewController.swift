@@ -22,26 +22,26 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     
     
     var input: UIView?
-
+    
     var downloadURL: String!
-
+    
     var latitude: Double! = 0
     var longitude: Double! = 0
     
     var eventLive: Bool!
     
-    //Set Up Firebase 
+    //Set Up Firebase
     var ref: FIRDatabaseReference!
     
     var imageData: NSData!
-
+    
     var storageRef: FIRStorageReference!
     
     let host = FIRAuth.auth()?.currentUser?.displayName!
     
     
-    //NSOperations for dependencies 
-   
+    //NSOperations for dependencies
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         ref = FIRDatabase.database().reference()
         
         configureStorage()
-
+        
         eventNameField.delegate = self
         eventDescription.delegate = self
         
@@ -58,8 +58,19 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
-        if FIRAuth.auth().currentUser == nil {
-            newEvent.enabled = false
+        
+        if UserState.sharedInstance.signedIn == false {
+            self.newEvent.enabled = false
+            let ac = UIAlertController(title: nil, message: "Sign In to Host", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            
+        }  else  if eventNameField.text == nil && eventDescription.text == nil && eventImageView.image == nil && latitude    == nil && longitude == nil {
+            self.newEvent.enabled = false
+            let ac = UIAlertController(title: "", message: "Fill up given fields to create New Event", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            
         }
         
     }
@@ -111,7 +122,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         
         let eventImageRef = eventImagesRef.child(filepath)
         
-        eventImageRef.putData(self.imageData!, metadata: metadata).observeStatus(.Success) { (snapshot) in
+        eventImageRef.putData(self.imageData!, metadata: metadata).observeStatus(.Success) { [unowned self] (snapshot) in
             
             let downloadTxt = snapshot.metadata!.downloadURL()!.absoluteString
             
@@ -127,16 +138,16 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -147,6 +158,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
             var vc = segue.destinationViewController as! UIViewController
             var controller = vc.popoverPresentationController
             
+            
             if controller != nil {
                 controller?.delegate = self
             }
@@ -156,23 +168,23 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     func keyboardWillShow(notification: NSNotification) {
         
         if eventDescription.isFirstResponder() {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
                 self.view.frame.origin.y -= keyboardSize.height
-        }
+            }
         }
         
     }
- 
+    
     
     func keyboardWillHide(notification: NSNotification) {
         
         if eventDescription.resignFirstResponder() {
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
             
-            self.view.frame.origin.y += keyboardSize.height
-        }
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                
+                self.view.frame.origin.y += keyboardSize.height
+            }
         }
     }
     
@@ -183,7 +195,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-     
+        
         eventNameField.resignFirstResponder()
         return true
         
@@ -207,31 +219,32 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func uploadEvent(sender: AnyObject) {
         
-       
+        
         var eventName = eventNameField.text
-
+        
         let eventSpace = (eventName! + host!.substringWithRange(host!.startIndex...host!.startIndex.advancedBy(2))).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
         let eventID = eventSpace.stringByReplacingOccurrencesOfString(" ", withString: "")
-    
+        
         var queue = NSOperationQueue()
         
-            
-            let key = self.ref.child("events").childByAutoId().key
+        
+        let key = self.ref.child("events").childByAutoId().key
         
         let event: [String: AnyObject] = ["eventID": eventID,
-                         "eventName": eventName!,
-                         "host": host!,
-                         "eventDescription": self.eventDescription.text!,
-                         "location": [ "latitude": self.latitude, "longitude": self.longitude],
-                        "eventPhotoURL": self.downloadURL!
-                         
-            ]
-        let childUpdates = ["/events/\(key)": event,
-                                "/user-events/\(host!)/\(key)" : event]
+                                          "eventName": eventName!,
+                                          "host": host!,
+                                          "eventDescription": self.eventDescription.text!,
+                                          "location": [ "latitude": self.latitude, "longitude": self.longitude],
+                                          "comments": [ "user": "", "comment": ""],
+                                          "eventPhotoURL": self.downloadURL!
+            
+        ]
         
-        //self.ref.updateChildValues(childUpdates)
-        self.ref.updateChildValues(childUpdates, withCompletionBlock: {
+        
+        let childUpdates = ["/events/\(key)": event,
+                            "/user-events/\(host!)/\(key)" : event]
+        self.ref.updateChildValues(childUpdates, withCompletionBlock: { [unowned self]
             (error: NSError?, ref: FIRDatabaseReference!) in
             if error != nil {
                 print("data could not be saved")
@@ -243,13 +256,14 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
             }
         })
         
+        
     }
-   
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
         
     }
     
-
+    
 }

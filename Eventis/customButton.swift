@@ -38,5 +38,12 @@ import UIKit
             layer.cornerRadius = newValue
         }
     }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        
+    }
+    
+   
 
 }
