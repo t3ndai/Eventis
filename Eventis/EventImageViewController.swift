@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EventImageViewController: UIViewController {
     
@@ -27,10 +28,15 @@ class EventImageViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-        loadImage()
+        //loadImage()
+        if !event.isEmpty {
+            imageUrl = event["eventPhotoURL"]! as AnyObject as! String
+            eventImageView.kf_setImageWithURL(NSURL(string: imageUrl)!)
+        }
     }
     
    

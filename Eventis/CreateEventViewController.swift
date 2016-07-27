@@ -110,7 +110,7 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         } else {
             return
         }
-        eventImageView.contentMode = .ScaleAspectFit
+        eventImageView.contentMode = .ScaleAspectFill
         eventImageView.image = eventImage
         imageData = UIImageJPEGRepresentation(eventImage, 1)
         
@@ -236,7 +236,6 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
                                           "host": host!,
                                           "eventDescription": self.eventDescription.text!,
                                           "location": [ "latitude": self.latitude, "longitude": self.longitude],
-                                          "comments": [ "user": "", "comment": ""],
                                           "eventPhotoURL": self.downloadURL!
             
         ]

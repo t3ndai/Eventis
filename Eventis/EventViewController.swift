@@ -102,8 +102,8 @@ class EventViewController: UIViewController{
         super.touchesBegan(touches, withEvent: event)
     }
     
-    
    
+    
   
     
     

@@ -9,6 +9,13 @@
 import UIKit
 
 class HostUpdatesTableViewController: UITableViewController {
+    
+    var event = Dictionary<String, AnyObject>(){
+        didSet{
+            print("recieved data")
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +26,32 @@ class HostUpdatesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.separatorColor = UIColor.clearColor()
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        /*let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: #selector(loadEvent) , name: "eventSelected", object: nil)*/
+        
     }
+    
+    func loadEvent(notification: NSNotification) {
+        
+            event = notification.object as! [String: AnyObject]
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            self.tableView.reloadData()
+        })
+       
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+       //let notificationCenter = NSNotificationCenter().defaultCenter()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadEvent) , name: "eventSelected", object: nil)
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,23 +62,31 @@ class HostUpdatesTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! HostUpdateTableViewCell
 
-        // Configure the cell...
-
+        if !event.isEmpty {
+            let description = event["eventDescription"]! as AnyObject as! String
+            let host = event["host"]! as AnyObject as! String
+    
+            cell.hostName.text = host
+            cell.hostName.sizeToFit()
+            cell.hostUpdate.text = description
+        }
+        
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+
+
 class SearchEventTableViewController: UITableViewController, UISearchBarDelegate {
     
     //UI Properties
@@ -22,6 +24,10 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
         }
     }
     var event = [String: AnyObject]()
+    
+    
+    var eventResult = Event()
+    
     //Firebase Setup 
     var ref: FIRDatabaseReference!
     
@@ -89,6 +95,7 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
                 NSOperationQueue.mainQueue().addOperationWithBlock({
                     self.tableView.reloadData()
                 })
+                
             }else if !snapshot.exists() {
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock({
@@ -145,6 +152,7 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         event = events[indexPath.row]
+        NSNotificationCenter.defaultCenter().postNotificationName("eventSelected", object: self.event)
         performSegueWithIdentifier("getEvent", sender: self)
         performSegueWithIdentifier("getImage", sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
