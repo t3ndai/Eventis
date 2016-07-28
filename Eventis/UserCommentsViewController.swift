@@ -24,7 +24,6 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     //Firebase Setup 
     var ref: FIRDatabaseReference!
     var eventComments = [Dictionary<String, AnyObject>]()
-    var comment = [String: AnyObject]()
     var event = [String: AnyObject]()
     
 
@@ -34,10 +33,8 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         // Do any additional setup after loading the view.
         self.commentsTable.delegate = self
         self.commentsTable.dataSource = self
-        self.commentsTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.commentsTable.addGestureRecognizer(tap)
        
-        
         self.commentInput!.layer.cornerRadius = 6
         self.commentInput?.textContainer.maximumNumberOfLines = 3
         self.commentInput?.textContainer.lineBreakMode = .ByTruncatingTail
@@ -48,6 +45,7 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         notficationCenter.addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
         ref = FIRDatabase.database().reference()
+        
         
     }
     
@@ -60,12 +58,21 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
             var eventID = event["eventID"]! as AnyObject as! String
             let commentsRef = ref.child("comments/\(eventID)")
             
-            commentsRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+            commentsRef.observeEventType(.ChildAdded, withBlock: { [unowned self] (snapshot) in
                 
                 if snapshot.exists() {
+                    
                     let data = snapshot.value as! Dictionary<String, AnyObject>
-                    self.eventComments.append(data)
-                    print("found")
+                    let name = data["name"]! as! String
+                    let commentText = data["comment"]! as! String
+                    
+                    let comment = ["name": name, "comment": commentText]
+                    
+                    self.eventComments.append(comment)
+
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ [unowned self] Void in
+                        self.commentsTable.reloadData()
+                    })
                 }
                 
             })
@@ -73,21 +80,32 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadEventID), name: "eventSelected", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadComments), name: "eventSelected", object: nil)
+        
+    }
+    
     override func viewDidAppear(animated: Bool) {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadEventID), name: "eventSelected", object: nil)
-        loadComments()
     }
- 
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return eventComments.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell!
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! userCommentTableViewCell
+        
+        let comment = eventComments[indexPath.row]
+        cell.userDisplayName.text = comment["name"]! as AnyObject as? String
+        cell.userComment.text = comment["comment"]! as AnyObject as? String
+        
         
         return cell
     }
@@ -184,6 +202,7 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     }
     
     override func viewDidDisappear(animated: Bool) {
+        //self.eventComments = []
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
