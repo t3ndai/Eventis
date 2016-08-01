@@ -217,16 +217,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vc9-41-ehp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vc9-41-ehp">
                                                     <rect key="frame" x="0.0" y="0.0" width="77" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="77" id="cRR-he-bFH"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5A-r5-B0c">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5A-r5-B0c">
                                                     <rect key="frame" x="76" y="0.0" width="244" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,11 +235,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vc9-41-ehp" firstAttribute="top" secondItem="2Vh-PT-edV" secondAttribute="top" id="7jK-5d-BzS"/>
-                                                <constraint firstItem="d5A-r5-B0c" firstAttribute="leading" secondItem="2Vh-PT-edV" secondAttribute="leadingMargin" constant="68" id="JZa-Gk-ayN"/>
+                                                <constraint firstItem="d5A-r5-B0c" firstAttribute="bottom" secondItem="vc9-41-ehp" secondAttribute="bottom" id="GlD-G5-v6j"/>
+                                                <constraint firstAttribute="trailing" secondItem="d5A-r5-B0c" secondAttribute="trailing" id="LJ4-zD-LOW"/>
+                                                <constraint firstItem="d5A-r5-B0c" firstAttribute="top" secondItem="vc9-41-ehp" secondAttribute="top" id="T6V-3V-Kq9"/>
                                                 <constraint firstItem="vc9-41-ehp" firstAttribute="centerY" secondItem="2Vh-PT-edV" secondAttribute="centerY" id="c1o-el-b55"/>
-                                                <constraint firstAttribute="trailing" secondItem="d5A-r5-B0c" secondAttribute="trailing" id="ccC-Wp-XxU"/>
-                                                <constraint firstItem="vc9-41-ehp" firstAttribute="baseline" secondItem="d5A-r5-B0c" secondAttribute="baseline" id="ghU-1f-uEI"/>
-                                                <constraint firstItem="vc9-41-ehp" firstAttribute="firstBaseline" secondItem="d5A-r5-B0c" secondAttribute="firstBaseline" id="meE-Ya-6sX"/>
+                                                <constraint firstItem="d5A-r5-B0c" firstAttribute="leading" secondItem="2Vh-PT-edV" secondAttribute="leadingMargin" constant="68" id="n40-gH-cgC"/>
                                                 <constraint firstItem="vc9-41-ehp" firstAttribute="leading" secondItem="2Vh-PT-edV" secondAttribute="leading" id="qB2-ET-g2C"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -264,7 +264,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftl-nv-sCL">
                                 <rect key="frame" x="264" y="211" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="ttp-BZ-kXx"/>
+                                    <constraint firstAttribute="width" constant="46" id="b6p-qh-Fnn"/>
                                 </constraints>
                                 <state key="normal" title="Send"/>
                                 <connections>
@@ -274,16 +274,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="9e6-Sk-i73" firstAttribute="top" secondItem="3vM-ac-VbU" secondAttribute="bottom" id="6NJ-SA-GL8"/>
-                            <constraint firstItem="O0Q-Jv-TdE" firstAttribute="centerY" secondItem="Ftl-nv-sCL" secondAttribute="centerY" id="7yb-vu-IpY"/>
-                            <constraint firstItem="9e6-Sk-i73" firstAttribute="leading" secondItem="B5y-PZ-UMf" secondAttribute="leading" id="CNg-iE-wTF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ftl-nv-sCL" secondAttribute="trailing" constant="-6" id="OMw-sB-k2P"/>
-                            <constraint firstItem="O0Q-Jv-TdE" firstAttribute="leading" secondItem="B5y-PZ-UMf" secondAttribute="leadingMargin" constant="-10" id="Xmh-NH-yhk"/>
-                            <constraint firstItem="O0Q-Jv-TdE" firstAttribute="top" secondItem="9e6-Sk-i73" secondAttribute="bottom" constant="3" id="g9L-24-cBu"/>
-                            <constraint firstAttribute="trailing" secondItem="9e6-Sk-i73" secondAttribute="trailing" id="jL5-1i-CaS"/>
-                            <constraint firstItem="rP4-pi-feg" firstAttribute="top" secondItem="O0Q-Jv-TdE" secondAttribute="bottom" constant="5" id="q73-83-rut"/>
-                            <constraint firstItem="Ftl-nv-sCL" firstAttribute="leading" secondItem="O0Q-Jv-TdE" secondAttribute="trailing" constant="8" symbolic="YES" id="qKo-Um-h0h"/>
-                            <constraint firstItem="Ftl-nv-sCL" firstAttribute="top" secondItem="9e6-Sk-i73" secondAttribute="bottom" constant="11" id="uai-Wq-dNj"/>
+                            <constraint firstItem="O0Q-Jv-TdE" firstAttribute="leading" secondItem="B5y-PZ-UMf" secondAttribute="leadingMargin" constant="-10" id="M8M-AF-DQZ"/>
+                            <constraint firstAttribute="trailing" secondItem="9e6-Sk-i73" secondAttribute="trailing" id="MEN-fb-bPJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ftl-nv-sCL" secondAttribute="trailing" constant="-6" id="PAc-lG-CPE"/>
+                            <constraint firstItem="9e6-Sk-i73" firstAttribute="leading" secondItem="B5y-PZ-UMf" secondAttribute="leading" id="VqP-B8-Nhk"/>
+                            <constraint firstItem="Ftl-nv-sCL" firstAttribute="top" secondItem="9e6-Sk-i73" secondAttribute="bottom" constant="11" id="YQR-cf-ftK"/>
+                            <constraint firstItem="O0Q-Jv-TdE" firstAttribute="centerY" secondItem="Ftl-nv-sCL" secondAttribute="centerY" id="dsE-1W-MYl"/>
+                            <constraint firstItem="O0Q-Jv-TdE" firstAttribute="top" secondItem="9e6-Sk-i73" secondAttribute="bottom" constant="3" id="hUu-qq-hgt"/>
+                            <constraint firstItem="Ftl-nv-sCL" firstAttribute="leading" secondItem="O0Q-Jv-TdE" secondAttribute="trailing" constant="8" symbolic="YES" id="hb0-UL-hsX"/>
+                            <constraint firstItem="rP4-pi-feg" firstAttribute="top" secondItem="O0Q-Jv-TdE" secondAttribute="bottom" constant="5" id="lDT-W4-oG8"/>
+                            <constraint firstItem="9e6-Sk-i73" firstAttribute="top" secondItem="3vM-ac-VbU" secondAttribute="bottom" id="z4u-b3-bCG"/>
                         </constraints>
                     </view>
                     <connections>
@@ -714,11 +714,11 @@
             </objects>
             <point key="canvasLocation" x="-1207.5" y="999.29577464788724"/>
         </scene>
-        <!--Host-->
+        <!--You-->
         <scene sceneID="jiJ-gY-0LE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAN-Cs-Uhf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Host" image="user_menu" selectedImage="user_menu_filled" id="Kaa-XX-AUm"/>
+                    <tabBarItem key="tabBarItem" title="You" image="user_menu" selectedImage="user_menu_filled" id="Kaa-XX-AUm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OeS-Ld-uuZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

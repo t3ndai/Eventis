@@ -28,11 +28,19 @@ class SignInViewController: UIViewController {
         let password = passwordField.text
         FIRAuth.auth()?.signInWithEmail(email!, password: password!) { [unowned self] (user,error) in
             
-            do {
+            if error != nil {
+                if let errorCode = FIRAuthErrorCode(rawValue: error!.code) {
+                    switch errorCode {
+                    case .ErrorCodeWrongPassword:
+                        print("wrong password")
+                    case .ErrorCodeUserNotFound:
+                        print("user not found")
+                    default:
+                        print("something wrong")
+                    }
+                }
+            }else {
                 self.signedIn(user!)
-            }
-            catch error! as NSError {
-                
             }
         }
     }
@@ -45,9 +53,20 @@ class SignInViewController: UIViewController {
         FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user,error) in
             
             if error != nil {
-                print(error?.localizedDescription)
+                
+                if let errorCode = FIRAuthErrorCode(rawValue: error!.code) {
+                    switch errorCode {
+                    case .ErrorCodeInvalidEmail:
+                        print("invalid email")
+                    case .ErrorCodeEmailAlreadyInUse:
+                        print("email already in use")
+                    default:
+                        ("you're a bozo")
+                    }
+                }
+            }else{
+                self.setDisplayName(user!)
             }
-            self.setDisplayName(user!)
         }
     }
     

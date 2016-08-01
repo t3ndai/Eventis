@@ -33,6 +33,7 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         // Do any additional setup after loading the view.
         self.commentsTable.delegate = self
         self.commentsTable.dataSource = self
+        self.commentsTable.rowHeight = UITableViewAutomaticDimension
         self.commentsTable.addGestureRecognizer(tap)
        
         self.commentInput!.layer.cornerRadius = 6
@@ -46,6 +47,7 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         
         ref = FIRDatabase.database().reference()
         
+        auth()
         
     }
     
@@ -53,10 +55,19 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         event = notification.object as! [String: AnyObject]
     }
     
+    func auth() {
+        if ((FIRAuth.auth()?.currentUser) != nil) {
+            UserState.sharedInstance.signedIn = true
+            UserState.sharedInstance.displayName = FIRAuth.auth()?.currentUser?.email?.componentsSeparatedByString("@")[0]
+        }
+    }
+    
     func loadComments(){
         if !event.isEmpty {
-            var eventID = event["eventID"]! as AnyObject as! String
+            let eventID = event["eventID"]! as AnyObject as! String
             let commentsRef = ref.child("comments/\(eventID)")
+            
+            eventComments.removeAll(keepCapacity: false)
             
             commentsRef.observeEventType(.ChildAdded, withBlock: { [unowned self] (snapshot) in
                 
@@ -104,6 +115,7 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
         
         let comment = eventComments[indexPath.row]
         cell.userDisplayName.text = comment["name"]! as AnyObject as? String
+        cell.userDisplayName.sizeToFit()
         cell.userComment.text = comment["comment"]! as AnyObject as? String
         
         
@@ -202,7 +214,6 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     }
     
     override func viewDidDisappear(animated: Bool) {
-        //self.eventComments = []
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

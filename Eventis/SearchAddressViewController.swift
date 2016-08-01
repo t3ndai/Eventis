@@ -20,6 +20,9 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
     var geocoder = Geocoder.sharedGeocoder
     var geocodingDataTask: NSURLSessionDataTask?
     
+    var appleGeocoder: CLGeocoder!
+    var applePlacemarks  = [CLPlacemark]()
+    
     var searchResults = [GeocodedPlacemark]()
     
     var latitude: Double!
@@ -50,13 +53,14 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
         var searchAddress = searchAddressTextBar.text
         
         let options = ForwardGeocodeOptions(query: searchAddress!)
+        options.allowedScopes = [.Address, .PointOfInterest]
         
         geocodingDataTask = geocoder.geocode(options: options) { [unowned self] (placemarks, attribution, error) in
             
             do {
                 self.searchResults.removeAll()
                 if placemarks == nil {
-                    return
+                    
                 }
                 else {
                     for placemark in placemarks! {
@@ -70,13 +74,16 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
             
         }
         
-        self.searchResultsTbl.reloadData()
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            self.searchResultsTbl.reloadData()
+        })
         searchAddressTextBar.resignFirstResponder()
     }
     
     func searchBar(searchAddressTextBar: UISearchBar, textDidChange searchText: String) {
         
         let options = ForwardGeocodeOptions(query: searchText)
+        options.allowedScopes = [.Address, .PointOfInterest]
         
         geocodingDataTask = geocoder.geocode(options: options) { [unowned self] (placemarks, attribution, error) in
             
@@ -85,8 +92,17 @@ class SearchAddressViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
         
-        self.searchResultsTbl.reloadData()
+        /*appleGeocoder.geocodeAddressString(searchAddressTextBar.text!, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            
+            for placemark in placemarks! {
+                self.applePlacemarks.append(placemark)
+            }
+            
+        })*/
         
+        NSOperationQueue.mainQueue().addOperationWithBlock({
+            self.searchResultsTbl.reloadData()
+        })
     }
     
     
