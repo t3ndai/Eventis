@@ -88,7 +88,6 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
             
             if snapshot.exists() {
                 let data = snapshot.value as! Dictionary<String, AnyObject>
-                guard let eventDescription = data["eventDescription"] as! String! else { return }
                 guard let eventURL = data["eventPhotoURL"] as! String! else { return }
                 
                 self.events.append(data)
@@ -96,13 +95,13 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
                     self.tableView.reloadData()
                 })
                 
-            }else if !snapshot.exists() {
+            }else  {
                 
-                NSOperationQueue.mainQueue().addOperationWithBlock({
+                
                     let ac = UIAlertController(title: "", message: "Event Not Found", preferredStyle: .Alert)
                     ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                     self.presentViewController(ac, animated: true, completion: nil)
-                })
+               
             }
         })
         
@@ -141,7 +140,6 @@ class SearchEventTableViewController: UITableViewController, UISearchBarDelegate
         // Configure the cell...
         for event in events {
             cell.textLabel?.text = event["eventName"] as! String
-            //cell.textLabel?.text = event["eventDescription"] as! String!
             cell.textLabel?.sizeToFit()
         }
 

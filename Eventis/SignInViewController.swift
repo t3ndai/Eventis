@@ -32,9 +32,15 @@ class SignInViewController: UIViewController {
                 if let errorCode = FIRAuthErrorCode(rawValue: error!.code) {
                     switch errorCode {
                     case .ErrorCodeWrongPassword:
-                        print("wrong password")
+                        let ac = UIAlertController(title: "Wrong Password", message: nil, preferredStyle: .Alert)
+                        self.presentViewController(ac, animated: true, completion: nil)
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                        
                     case .ErrorCodeUserNotFound:
-                        print("user not found")
+                        let ac = UIAlertController(title: "User Not found", message: nil, preferredStyle: .Alert)
+                        self.presentViewController(ac, animated: true, completion: nil)
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                       
                     default:
                         print("something wrong")
                     }
@@ -57,9 +63,17 @@ class SignInViewController: UIViewController {
                 if let errorCode = FIRAuthErrorCode(rawValue: error!.code) {
                     switch errorCode {
                     case .ErrorCodeInvalidEmail:
-                        print("invalid email")
+                        let ac = UIAlertController(title: "Invalid Email", message: nil, preferredStyle: .Alert)
+                        self.presentViewController(ac, animated: true, completion: nil)
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                        
                     case .ErrorCodeEmailAlreadyInUse:
+                        let ac = UIAlertController(title: "Email Already in Use", message: nil, preferredStyle: .Alert)
+                        self.presentViewController(ac, animated: true, completion: nil)
+                        self.dismissViewControllerAnimated(true, completion: nil)
                         print("email already in use")
+                        
                     default:
                         ("you're a bozo")
                     }

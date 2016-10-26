@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		95219D150FE17A558BA876B1 /* Pods_Eventis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B98E722B36DD3572913E5E92 /* Pods_Eventis.framework */; };
-		FE020FD91D3D83CD005A87B3 /* customTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE020FD81D3D83CD005A87B3 /* customTextView.swift */; };
 		FE0516B21D15D64E00296A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516B11D15D64E00296A77 /* AppDelegate.swift */; };
 		FE0516B71D15D64E00296A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B51D15D64E00296A77 /* Main.storyboard */; };
 		FE0516B91D15D64E00296A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE0516B81D15D64E00296A77 /* Assets.xcassets */; };
@@ -18,6 +17,8 @@
 		FE0516EA1D1635A100296A77 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516E91D1635A100296A77 /* EventViewController.swift */; };
 		FE0516EE1D16361300296A77 /* HostUpdatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */; };
 		FE1546251D3D96ED00FFC9AB /* UserCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1546241D3D96ED00FFC9AB /* UserCommentsViewController.swift */; };
+		FE42EF081D4FCFB2005487C8 /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE42EF071D4FCFB2005487C8 /* MyEventsTableViewController.swift */; };
+		FE42EF0A1D4FDCEA005487C8 /* EventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE42EF091D4FDCEA005487C8 /* EventListTableViewCell.swift */; };
 		FE4F1E461D1C60B0002DFC1F /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */; };
 		FE5364861D3073D600C99126 /* EventImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5364851D3073D600C99126 /* EventImageViewController.swift */; };
 		FE5364881D30828100C99126 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5364871D30828100C99126 /* Event.swift */; };
@@ -30,13 +31,13 @@
 		FE9C987C1D1858E600E63A8F /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C987B1D1858E600E63A8F /* UserState.swift */; };
 		FE9C987E1D18677E00E63A8F /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */; };
 		FE9F0BA61D3F043C00011370 /* HostMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F0BA51D3F043C00011370 /* HostMenuTableViewController.swift */; };
+		FEF3BFB61D51303E009A9510 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF3BFB51D51303E009A9510 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		824454ECCC182DC1A6A98F90 /* Pods-Eventis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eventis/Pods-Eventis.debug.xcconfig"; sourceTree = "<group>"; };
 		A47C821563CB29CE830471A5 /* Pods-Eventis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eventis/Pods-Eventis.release.xcconfig"; sourceTree = "<group>"; };
 		B98E722B36DD3572913E5E92 /* Pods_Eventis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE020FD81D3D83CD005A87B3 /* customTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextView.swift; sourceTree = "<group>"; };
 		FE0516AE1D15D64E00296A77 /* Eventis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0516B11D15D64E00296A77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE0516B61D15D64E00296A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +49,8 @@
 		FE0516E91D1635A100296A77 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		FE0516ED1D16361300296A77 /* HostUpdatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostUpdatesTableViewController.swift; sourceTree = "<group>"; };
 		FE1546241D3D96ED00FFC9AB /* UserCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentsViewController.swift; sourceTree = "<group>"; };
+		FE42EF071D4FCFB2005487C8 /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsTableViewController.swift; sourceTree = "<group>"; };
+		FE42EF091D4FDCEA005487C8 /* EventListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListTableViewCell.swift; sourceTree = "<group>"; };
 		FE4F1E451D1C60B0002DFC1F /* SearchAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
 		FE5364851D3073D600C99126 /* EventImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventImageViewController.swift; sourceTree = "<group>"; };
 		FE5364871D30828100C99126 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		FE9C987B1D1858E600E63A8F /* UserState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		FE9C987D1D18677E00E63A8F /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		FE9F0BA51D3F043C00011370 /* HostMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostMenuTableViewController.swift; sourceTree = "<group>"; };
+		FEF3BFB51D51303E009A9510 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +134,13 @@
 				FE5364891D36C64D00C99126 /* SearchEventTableViewController.swift */,
 				FE53648B1D3869ED00C99126 /* MapViewController.swift */,
 				FE53648D1D39670E00C99126 /* UIStoryboardSegueWithCompletion.swift */,
-				FE020FD81D3D83CD005A87B3 /* customTextView.swift */,
 				FE1546241D3D96ED00FFC9AB /* UserCommentsViewController.swift */,
 				FE9F0BA51D3F043C00011370 /* HostMenuTableViewController.swift */,
 				FE6E9BDD1D4013A200691D3C /* userCommentTableViewCell.swift */,
 				FE536FBB1D4689E300FAF36A /* HostUpdateTableViewCell.swift */,
+				FE42EF071D4FCFB2005487C8 /* MyEventsTableViewController.swift */,
+				FE42EF091D4FDCEA005487C8 /* EventListTableViewCell.swift */,
+				FEF3BFB51D51303E009A9510 /* CustomButton.swift */,
 			);
 			path = Eventis;
 			sourceTree = "<group>";
@@ -265,11 +271,13 @@
 			files = (
 				FE6E9BDE1D4013A200691D3C /* userCommentTableViewCell.swift in Sources */,
 				FE536FBC1D4689E300FAF36A /* HostUpdateTableViewCell.swift in Sources */,
-				FE020FD91D3D83CD005A87B3 /* customTextView.swift in Sources */,
 				FE9C98781D18431300E63A8F /* SignInViewController.swift in Sources */,
+				FE42EF0A1D4FDCEA005487C8 /* EventListTableViewCell.swift in Sources */,
+				FEF3BFB61D51303E009A9510 /* CustomButton.swift in Sources */,
 				FE4F1E461D1C60B0002DFC1F /* SearchAddressViewController.swift in Sources */,
 				FE53648E1D39670E00C99126 /* UIStoryboardSegueWithCompletion.swift in Sources */,
 				FE5364861D3073D600C99126 /* EventImageViewController.swift in Sources */,
+				FE42EF081D4FCFB2005487C8 /* MyEventsTableViewController.swift in Sources */,
 				FE5364881D30828100C99126 /* Event.swift in Sources */,
 				FE9C987C1D1858E600E63A8F /* UserState.swift in Sources */,
 				FE0516EA1D1635A100296A77 /* EventViewController.swift in Sources */,

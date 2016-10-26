@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HostUpdatesTableViewController: UITableViewController {
     
@@ -15,6 +16,10 @@ class HostUpdatesTableViewController: UITableViewController {
             print("recieved data")
         }
     }
+    
+    var ref: FIRDatabaseReference!
+    
+    var updates = [Dictionary<String, String>]()
     
 
     override func viewDidLoad() {
@@ -32,11 +37,20 @@ class HostUpdatesTableViewController: UITableViewController {
         /*let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(loadEvent) , name: "eventSelected", object: nil)*/
         
+        ref = FIRDatabase.database().reference()
+        
     }
     
     func loadEvent(notification: NSNotification) {
         
-            event = notification.object as! [String: AnyObject]
+        event = notification.object as! [String: AnyObject]
+        let description = event["eventDescription"]! as AnyObject as! String
+        let host = event["host"]! as AnyObject as! String
+        
+        let hostUpdate = ["host": host, "update": description]
+        
+        self.updates.append(hostUpdate)
+        
         
         NSOperationQueue.mainQueue().addOperationWithBlock({
             self.tableView.reloadData()
@@ -45,9 +59,35 @@ class HostUpdatesTableViewController: UITableViewController {
         
     }
     
+    func getUpdates() {
+        if !event.isEmpty {
+            let eventTag = event["eventID"]! as AnyObject as! String
+            let updatesRef = ref.child("host-updates/\(eventTag)")
+            
+            updatesRef.observeEventType(.ChildAdded, withBlock: { [unowned self] (snapshot) in
+                
+                if snapshot.exists() {
+                    let data = snapshot.value as! Dictionary<String, AnyObject>
+                    let host = data["host"] as! String
+                    let update = data["update"] as! String
+                    
+                    let hostUpdate = ["host": host, "update": update]
+                    
+                    self.updates.append(hostUpdate)
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                        self.tableView.reloadData()
+                    })
+                }
+                
+            })
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
        //let notificationCenter = NSNotificationCenter().defaultCenter()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadEvent) , name: "eventSelected", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(getUpdates), name: "eventSelected", object: nil)
         
     }
     
@@ -67,21 +107,26 @@ class HostUpdatesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return updates.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! HostUpdateTableViewCell
 
-        if !event.isEmpty {
+        /*if !event.isEmpty {
             let description = event["eventDescription"]! as AnyObject as! String
             let host = event["host"]! as AnyObject as! String
     
             cell.hostName.text = host
             cell.hostName.sizeToFit()
             cell.hostUpdate.text = description
-        }
+        }*/
+        
+        let update = updates[indexPath.row]
+        cell.hostName.text = update["host"]!
+        cell.hostName.sizeToFit()
+        cell.hostUpdate.text = update["update"]!
         
         
         return cell

@@ -17,8 +17,6 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var commentsTable: UITableView!
     
-    
-    
     let tap = UITapGestureRecognizer()
     
     //Firebase Setup 
@@ -214,6 +212,7 @@ class UserCommentsViewController: UIViewController, UITextViewDelegate, UITableV
     }
     
     override func viewDidDisappear(animated: Bool) {
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
