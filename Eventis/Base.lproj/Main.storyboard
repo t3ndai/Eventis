@@ -309,7 +309,11 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I69-yO-CqQ" id="MEH-bq-xnK">
+<<<<<<< HEAD
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+=======
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+>>>>>>> master
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ON-so-UhC">
@@ -763,7 +767,11 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S4a-x7-Kbn" id="nUt-0K-HAv">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="58"/>
+=======
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+>>>>>>> master
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
